@@ -10,7 +10,7 @@ Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-912
 Here are some ideas to get you started:
 
 - 📍 I'm based in Bangkok , Thailand
-- 🖥️ See my portfolio at Portfolio
+- 🖥️ See my portfolio at <a href"www.fujipp.com">Portfolio</a>
 - 💬 I'm currently learning All Code :)
 - 📫 You can contact me at fujipp.official@gmail.com
 
