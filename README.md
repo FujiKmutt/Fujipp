@@ -1,4 +1,5 @@
-### Hi there 👋
+Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)My name is Anawat Grudtoop (FUJI)
+============================================================================================================================================
 
 <div id="header" align="center">
   <img src="https://media.giphy.com/media/zhYSVCirREeIZtONCI/giphy.gif" width="300"/>
@@ -8,17 +9,12 @@
 
 Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+- 📍 I'm based in Bangkok , Thailand
+- 🖥️ See my portfolio at Portfolio
+- 💬 I'm currently learning All Code :)
+- 📫 You can contact me at fujipp.official@gmail.com
 
-Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)My name is Anawat Grudtoop
-============================================================================================================================================
+
 
 Software Developer
 ------------------
