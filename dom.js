@@ -268,3 +268,69 @@ module.exports = guestForm
 //const { registerEventHandling, displayGuests } = guestForm()
 //registerEventHandling()
 //displayGuests(guestList.getAllGuests())
+
+
+
+//------------------------------------------------------
+// 1. register event for searching and adding
+  function registerEventHandling() {
+    document.getElementById("search-input").addEventListener("keyup", searchGuest)
+    document.getElementById("add-guest-btn").addEventListener("click", addGuest)
+  }
+ 
+  // 2. Function to display one guest in the display area
+  function displayGuest(guestItem) {
+    let dispArea = document.getElementById('display-area')
+    let newDiv = document.createElement('div')
+ 
+    let span1 = document.createElement("span")
+    span1.textContent = `${guestItem.firstname} ${guestItem.lastname}`
+ 
+    let span2 = document.createElement("span")
+    span2.setAttribute("class", "remove-icon")
+    span2.setAttribute("id", `${guestItem.firstname}-${guestItem.lastname}`)
+span2.style.cursor = "pointer"
+span2.style.color = "red"
+    span2.textContent = '[X]'
+    span2.addEventListener("click", removeGuest)
+ 
+    newDiv.appendChild(span1)
+    newDiv.appendChild(span2)
+ 
+    dispArea.appendChild(newDiv)
+  }
+ 
+  // 3. Function to display all existing guests in the display area
+  function displayGuests(guestResult) {
+    document.getElementById('display-area').innerHTML = ''
+    guestResult.forEach(element => {
+      displayGuest(element)
+    });
+  }
+ 
+  // 4. Function to search and display matching guests
+  function searchGuest(event) {
+    let inputText = document.getElementById('search-input').value
+    displayGuests(guests.searchGuests(inputText))
+  }
+ 
+  // 5. Function to add a new guest
+  function addGuest() {
+    let firstname = document.getElementById("firstname-input").value
+    let lastname = document.getElementById("lastname-input").value
+    guests.addNewGuest(firstname, lastname)
+    let newGuest = guests.getAllGuests().find(guest => (guest.firstname === firstname && guest.lastname === lastname))
+    displayGuest(newGuest)
+    document.getElementById("firstname-input").value = ''
+    document.getElementById("lastname-input").value = ''
+  }
+ 
+  // 6. Function to remove a guest
+  function removeGuest(event) {
+    let xMark = event.target
+    let div = xMark.parentElement
+    let fullname = xMark.previousSibling.textContent.split(" ")
+    let toBeRemoved = guests.getAllGuests().find(guest => guest.firstname === fullname[0] && guest.lastname === fullname[1])
+    div.remove()
+    guests.removeGuest(toBeRemoved)
+  }
