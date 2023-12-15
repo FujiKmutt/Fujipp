@@ -175,3 +175,96 @@ displayGuests(guestList.getAllGuests())
     div.remove()
     guests.removeGuest(toBeRemoved)
   }
+
+//-----------------------------
+// 65130500028 Thamonwan Simcharoen
+//import { createGuestList } from './data/guestdata.js'
+const createGuestList = require('./data/guestdata.js')
+ 
+const guestList = createGuestList()
+function guestForm() {
+  //provide initial guests data list created from GuestManagement class
+  let guests = guestList
+ 
+  // 1. register event for searching and adding
+  function registerEventHandling() {
+ 
+    const searchInput = document.getElementById("search-input")
+    searchInput.addEventListener("keyup", (event) => {
+       searchGuest(event)})
+ 
+ 
+    const addGuestButton = document.getElementById("add-guest-btn")
+    addGuestButton.addEventListener("click", () => addGuest())
+ 
+  }
+ 
+  // 2. Function to display one guest in the display area
+  function displayGuest(guestItem) {
+    const newGuestDiv = document.createElement('div')
+ 
+    const newSpan1 = document.createElement('span')
+    newSpan1.textContent(`${guestItem.value[0]} ${guestItem.value[1]}`)
+    newGuestDiv.appendChild(newSpan1)
+ 
+    const newSpan2 = document.createElement('span')
+    newSpan2.setAttribute("class","remove-icon")
+    newSpan2.setAttribute("id",`${guestItem.value[0]}-${guestItem.value[1]}`)
+    newSpan2.setAttribute("style","cursor:pointer;color:red")
+    newSpan2.innerHTML = '[X]'
+    newGuestDiv.appendChild(newSpan2)
+ 
+    const span2 = document.getElementById('firstname-lastname')
+    const despan2 = span2.childNodes[0]
+    despan2.addEventListener(("click") ,(event) => removeGuest(event))
+  }
+ 
+  // 3. Function to display all existing guests in the display area
+  function displayGuests(guestResult) {
+    const displayArea = document.body.children[3]
+    const displayChildArea = displayArea.children
+    displayArea.removeChild(displayChildArea)
+ 
+    
+  }
+ 
+  // 4. Function to search and display matching guests
+  function searchGuest(event) {
+    const searchInput = searchGuests(event)
+    
+    
+  }
+ 
+  // 5. Function to add a new guest
+  function addGuest() {
+    const firstname = document.querySelector("firstname-input").value
+    const lastname = document.querySelector("lastname-input").value
+ 
+    const addNewGuest = addNewGuest(firstname,lastname)
+    displayGuest(addNewGuest)
+ 
+    firstname = ""
+    lastname = ""
+  }
+ 
+  // 6. Function to remove a guest
+  function removeGuest(event) {
+    const removeButton = event.target
+    const removeId = removeButton.parentElement.getAttribute("id")
+    removeGuest(removeId)
+  }
+ 
+  return {
+    registerEventHandling,
+    displayGuests,
+    searchGuest,
+    addGuest,
+    removeGuest
+  }
+}
+ 
+module.exports = guestForm
+//export { guestForm }
+//const { registerEventHandling, displayGuests } = guestForm()
+//registerEventHandling()
+//displayGuests(guestList.getAllGuests())
