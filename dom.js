@@ -334,3 +334,88 @@ span2.style.color = "red"
     div.remove()
     guests.removeGuest(toBeRemoved)
   }
+
+//65130500087 Anawat Grudtoop
+function addNewProduct() {
+    let textElem = document.getElementById('product-input')
+    let divElem = document.getElementById('product-list');
+
+    let newProduct = textElem.value;
+    divElem.innerHTML = `<div id="abc" class="product-item">
+                        <p>${newProduct}</p>
+                        <button>Remove</button>
+                        </div>
+                        `;     
+    textElem.value = '';
+    textElem.focus();
+}
+
+function removeProduct(productId) {
+    let removeButton = productId.target
+    let removeId = removeButton.parentElement.getAttribute("product-list")
+    removeGuest(removeId)
+}
+
+function removeAllProduct() {
+    
+}
+
+function registerEvent() {
+    let addButtonEle = document.getElementById("add-button")
+    let removeAllButtonEle = document.getElementById("removeAll-button")
+
+    addButtonEle.addEventListener('click', () => {
+        console.log('click Add')
+        addNewProduct.call(this)
+      })
+    removeAllButtonEle.addEventListener('click', () => {
+        console.log('click Remove All')
+        removeAllProduct.call(this)
+      })
+}
+
+registerEvent()
+
+---------
+  //65130500087 Anawat Grudtoop
+function addNewProduct() {
+    let textElem = document.getElementById('product-input')
+    let divElem = document.getElementById('product-list');
+
+    let newProduct = textElem.value;
+    divElem.innerHTML = `<div id="abc" class="product-item">
+                        <p>${newProduct}</p>
+                        <button>Remove</button>
+                        </div>
+                        `;     
+    textElem.value = '';
+    textElem.focus();
+}
+
+function removeProduct(productId) {
+    let removeButton = productId.target
+    let removeId = removeButton.parentElement.getAttribute("product-list")
+    removeGuest(removeId)
+}
+
+function removeAllProduct() {
+    var todoItemToRemove = document.getElementById("abc");
+    todoItemToRemove.parentNode.removeChild(todoItemToRemove);
+}
+
+function registerEvent() {
+    let addButtonEle = document.getElementById("add-button")
+    let removeAllButtonEle = document.getElementById("removeAll-button")
+
+    addButtonEle.addEventListener('click', () => {
+        console.log('click Add')
+        addNewProduct.call(this)
+      })
+    removeAllButtonEle.addEventListener('click', () => {
+        console.log('click Remove All')
+        removeAllProduct.call(this)
+      })
+}
+
+registerEvent()
+
